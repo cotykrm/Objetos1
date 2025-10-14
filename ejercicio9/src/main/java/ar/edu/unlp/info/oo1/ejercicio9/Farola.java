@@ -14,8 +14,11 @@ public class Farola {
 	}
 	
 	public void pairWithNeighbor(Farola otraFarola) {
-		this.getNeighbors().add(otraFarola);
-		otraFarola.getNeighbors().add(this);
+		if(this.getNeighbors().contains(otraFarola)){
+			this.getNeighbors().add(otraFarola);
+			otraFarola.pairWithNeighbor(this);
+		}
+		
 	}
 	
 	public List<Farola> getNeighbors(){
