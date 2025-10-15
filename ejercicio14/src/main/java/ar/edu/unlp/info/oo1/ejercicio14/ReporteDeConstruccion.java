@@ -16,20 +16,16 @@ public class ReporteDeConstruccion {
 	}
 	
 	public double volumenDeMaterial(String material) {
-		double total = 0;
-		for(Pieza pieza : this.getPieza()) {
-			total += pieza.volumenDeMaterial(material);
-		}
-		return total;
+		return this.piezas.stream()
+		.mapToDouble(pieza->pieza.volumenDeMaterial(material))
+		.sum();
 	}
 	
 	
 	public double superficieDeColor(String color) {
-		double total = 0;
-		for(Pieza pieza : this.getPieza()) {
-			total += pieza.superficieDeColor(color);
-		}
-		return total;
+		return this.piezas.stream()
+		.mapToDouble(pieza->pieza.superficieDeColor(color))
+		.sum();
 	}
 	
 }

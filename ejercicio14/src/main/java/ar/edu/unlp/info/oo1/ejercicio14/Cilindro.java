@@ -20,14 +20,14 @@ public class Cilindro extends Pieza{
 	}
 	
 	public double volumenDeMaterial(String material) {
-		if(this.esMaterial(material)) {
+		if(this.getMaterial().equals(material)) {
 			return Math.PI*Math.pow(this.getRadio(),2)*this.getAltura();
 		}
 		return 0;
 	}
 	
 	public double superficieDeColor(String color) {
-		if(this.esColor(color)) {
+		if(this.getColor().equals(color)) {
 			return 2*Math.PI*this.getRadio()*this.getAltura()+2*Math.PI*Math.pow(this.getRadio(),2);
 		}
 		return 0;

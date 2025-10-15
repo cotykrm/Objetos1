@@ -13,14 +13,14 @@ public class Esfera extends Pieza{
 	}
 	
 	public double volumenDeMaterial(String material) {
-		if(this.esMaterial(material)) {
+		if(this.getMaterial().equals(material)) {
 			return 4/3 * Math.PI * Math.pow(this.getRadio(), 3);
 		}
 		return 0;
 	}
 	
 	public double superficieDeColor(String color) {
-		if(this.esColor(color)) {
+		if(this.getColor().equals(color)) {
 			return 4*Math.PI*Math.pow(this.getRadio(),2);
 		}
 		return 0;

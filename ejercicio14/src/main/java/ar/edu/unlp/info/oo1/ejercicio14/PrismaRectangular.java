@@ -26,14 +26,14 @@ public class PrismaRectangular extends Pieza{
 	}
 
 	public double volumenDeMaterial(String material) {
-		if(this.esMaterial(material)) {
+		if(this.getMaterial().equals(material)) {
 			return this.getLadoMayor()*this.getLadoMenor()*this.getAltura();
 		}
 		return 0;
 	}
 	
 	public double superficieDeColor(String color) {
-		if(this.esColor(color)) {
+		if(this.getColor().equals(color)) {
 			return 2*(this.getLadoMayor()*this.getLadoMenor() + 
 			this.getLadoMayor()*this.getAltura() + this.getLadoMenor()*this.getAltura());
 		}
