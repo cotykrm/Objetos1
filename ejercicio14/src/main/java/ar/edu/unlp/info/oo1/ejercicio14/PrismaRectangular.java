@@ -24,7 +24,8 @@ public class PrismaRectangular extends Pieza{
 	public double getAltura(){
 		return this.altura;
 	}
-
+	
+	@Override
 	public double volumenDeMaterial(String material) {
 		if(this.getMaterial().equals(material)) {
 			return this.getLadoMayor()*this.getLadoMenor()*this.getAltura();
@@ -32,6 +33,7 @@ public class PrismaRectangular extends Pieza{
 		return 0;
 	}
 	
+	@Override
 	public double superficieDeColor(String color) {
 		if(this.getColor().equals(color)) {
 			return 2*(this.getLadoMayor()*this.getLadoMenor() + 

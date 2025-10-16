@@ -17,15 +17,6 @@ public abstract class Pieza {
 		return this.material;
 	}
 	
-	protected boolean esColor(String color) {
-		return this.getColor().equals(color);
-
-	}
-	
-	protected boolean esMaterial(String material) {
-		return this.getMaterial().equals(material);
-	}
-	
 	public abstract double volumenDeMaterial(String material);
 	
 	public abstract double superficieDeColor(String color);

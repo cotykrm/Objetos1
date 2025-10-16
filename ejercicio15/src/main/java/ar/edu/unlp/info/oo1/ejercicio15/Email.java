@@ -26,6 +26,10 @@ public class Email {
         return this.adjuntos;
     }
 
+    public void addArchivo(Archivo a){
+        this.getAdjuntos().add(a);
+    }
+
     public int getTamanio(){
         int aux = this.getAdjuntos().stream()
         .mapToInt(adjunto->adjunto.getTamanio())
