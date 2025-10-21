@@ -30,6 +30,10 @@ public class ClienteDeCorreo {
         return this.inbox;
     }
 
+    public void agregarCarpeta(Carpeta carpeta){
+        this.getCarpetas().add(carpeta);
+    }
+
     public void agregarEmail(Email email){
         this.getInbox().agregarEmail(email);
     }
