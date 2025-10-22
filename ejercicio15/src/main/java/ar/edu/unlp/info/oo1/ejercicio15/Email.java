@@ -36,4 +36,10 @@ public class Email {
         .sum(); 
         return aux + this.getCuerpo().length() + this.getTitulo().length();
     }
+
+    public Email buscar(String texto){
+        if ((this.getTitulo().contains(texto)) ||(this.getCuerpo().contains(texto)))
+            return this;
+        return null;
+    }
 }

@@ -6,25 +6,35 @@ import org.junit.jupiter.api.Test;
 
 public class ClienteDeCorreoTest {
 
-    ClienteDeCorreo cliente;
+    ClienteDeCorreo c;
+    ClienteDeCorreo cV;
 
     @BeforeEach
     void setUp(){
-        cliente = new ClienteDeCorreo();
+        c = new ClienteDeCorreo();Carpeta c1 = new Carpeta("c1");
+        c.agregarCarpeta(c1);
+        Carpeta c2 = new Carpeta("c2");
+        c.agregarCarpeta(c2);
+        Email e = new Email("Final octubre","LoremIpsum");
+        c.recibir(e);
+        cV = new ClienteDeCorreo();
     }
 
     @Test
     void agregarEmailTest(){
-        assertEquals(0, cliente.getInbox().);
+        assertEquals(0, cV.getInbox().getEmails().size());
+        assertEquals(1,c.getInbox().getEmails().size());
+
     }
 
     @Test
     void buscarTest(){
-        Carpeta c1 = new Carpeta("c1");
-        cliente.agregarCarpeta(c1);
-        Carpeta c2 = new Carpeta("c2");
-        cliente.agregarCarpeta(c2);
-        assertEquals("inbox",cliente.buscar("inbox"));
+        assertEquals("inbox",c.buscar("inbox"));
+
+    }
+
+    @Test 
+    void espacioOcupadoTest(){
 
     }
 

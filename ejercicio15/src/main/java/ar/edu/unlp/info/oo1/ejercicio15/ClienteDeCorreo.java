@@ -34,12 +34,12 @@ public class ClienteDeCorreo {
         this.getCarpetas().add(carpeta);
     }
 
-    public void agregarEmail(Email email){
+    public void recibir(Email email){
         this.getInbox().agregarEmail(email);
     }
 
     public Email buscar(String texto){
-        return this.carpetas.stream()
+        return this.getCarpetas().stream()
         .map(carpeta -> carpeta.buscar(texto))
         .findFirst()
         .orElse(null);

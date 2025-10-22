@@ -36,8 +36,8 @@ public class Carpeta {
     }
 
     public Email buscar(String texto){
-        return this.getEmails().stream() 
-        .filter(email->email.getTitulo().startsWith(texto))
+        return this.getEmails().stream()
+        .map(mail -> mail.buscar(texto))
         .findFirst()
         .orElse(null);
 
