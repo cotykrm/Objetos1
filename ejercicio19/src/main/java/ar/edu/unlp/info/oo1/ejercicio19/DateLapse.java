@@ -44,15 +44,7 @@ public class DateLapse {
     Retorna true si el período de tiempo del receptor se superpone con el recibido por parámetro
     **/
     public boolean overlaps(DateLapse anotherDateLapse){
-        return this.getFrom().isEqual(from)
+        return !(this.getTo().isBefore(anotherDateLapse.getFrom()) || this.getFrom().isAfter(anotherDateLapse.getTo()));
     }
 
-
-
-    /*
-     * fecha a y fecha b
-     * si fecha a-medio 
-     * 
-     * 
-     */
 }

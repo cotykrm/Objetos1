@@ -35,9 +35,32 @@ public class Propiedad {
     }
 
     public boolean getDisponibilidad(LocalDate inicio, LocalDate fin){
-        
+        DateLapse lapso = new DateLapse(inicio, fin);
+        return this.getReservas().stream()
+        .allMatch(reserva -> reserva.overlaps(lapso));
 
     }
 
-    
+    public boolean mine(Reserva r){
+        return this.getReservas().contains(r);
+    }
+
+    public void crearReserva(LocalDate inicio, LocalDate fin){
+        if((this.getDisponibilidad(inicio, fin))){
+            Reserva reserva = new Reserva(inicio, fin, this);
+            this.getReservas().add(reserva);
+        }
+    }
+
+    public void cancelarReserva(Reserva reserva){
+        if(this.mine(reserva)&&reserva.estaEnRango()){
+            this.getReservas().remove(reserva);
+        }
+    }
+
+    public double getRedistribucion(DateLapse periodo){
+        return this.getReservas().stream()
+        .mapToDouble(reserva ->reserva.getRedistribucion(periodo))
+        .sum();
+    }
 }

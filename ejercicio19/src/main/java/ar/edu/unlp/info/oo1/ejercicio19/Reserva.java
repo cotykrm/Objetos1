@@ -22,9 +22,18 @@ public class Reserva {
         return this.lapso;
     }
 
-    public boolean estaEnRango(LocalDate hoy){
-        return this.lapso.getFrom().isAfter(hoy);
+    public boolean estaEnRango(){
+        return this.lapso.getFrom().isAfter(LocalDate.now());
     }
 
+    public boolean overlaps (DateLapse other){
+        return this.getLapso().overlaps(other);
+    }
 
+    public double getRedistribucion(DateLapse periodo){
+        if(this.overlaps(periodo)){
+            return this.getPrecio();
+        }
+        return 0;
+    }
 }
