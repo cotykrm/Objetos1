@@ -1,4 +1,4 @@
-package ar.edu.unlp.info.oo1.ejercicio19;
+package ar.edu.unlp.info.oo1.ejercicio20;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -9,16 +9,26 @@ public class Propiedad {
     private String direccion;
     private List<Reserva> reservas;
     private double precioNoche;
+    private Politica politica;
 
-    public Propiedad (String nombre, String direccion, double pxn){
+    public Propiedad (String nombre, String direccion, double pxn, Politica politica){
         this.direccion = direccion;
         this.nombre = nombre;
         precioNoche = pxn;
         this.reservas = new LinkedList<>();
+        this.politica = politica;
     }
 
     public List<Reserva> getReservas(){
         return this.reservas;
+    }
+
+    public Politica getPolitica(){
+        return this.politica;
+    }
+
+    public void setPolitica(Politica politica){
+        this.politica = politica;
     }
 
     public String getNombre(){
@@ -41,10 +51,6 @@ public class Propiedad {
 
     }
 
-    /*public boolean mine(Reserva r){
-        return this.getReservas().contains(r);
-    }*/
-
     public void crearReserva(LocalDate inicio, LocalDate fin){
         if((this.getDisponibilidad(inicio, fin))){
             Reserva reserva = new Reserva(inicio, fin, this);
@@ -52,8 +58,9 @@ public class Propiedad {
         }
     }
 
-    public void cancelarReserva(Reserva reserva){
+    public double cancelarReserva(Reserva reserva){
             this.getReservas().remove(reserva);
+            return this.getPolitica().calcularReembolso(reserva);
     }
 
     public double getRedistribucion(DateLapse periodo){
