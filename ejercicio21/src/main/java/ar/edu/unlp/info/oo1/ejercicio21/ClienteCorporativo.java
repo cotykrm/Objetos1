@@ -13,8 +13,9 @@ public class ClienteCorporativo extends Cliente{
     }
 
     @Override
-    public double calcularCosto() {
+    public double calcularCosto(DateLapse periodo) {
         return this.getEnvios().stream()
+        .filter(envio -> envio.dentroPeriodo(periodo))
         .mapToDouble(envio -> envio.getMonto())
         .sum();
     }
