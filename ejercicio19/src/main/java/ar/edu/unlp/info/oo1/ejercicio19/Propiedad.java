@@ -41,9 +41,6 @@ public class Propiedad {
 
     }
 
-    /*public boolean mine(Reserva r){
-        return this.getReservas().contains(r);
-    }*/
 
     public void crearReserva(LocalDate inicio, LocalDate fin){
         if((this.getDisponibilidad(inicio, fin))){
