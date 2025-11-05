@@ -28,9 +28,9 @@ public class Usuario{
         return this.direccion;
     }
 
-    public double getRedistribucion(DateLapse periodo){
+    public double getRetribucion(DateLapse periodo){
         double total = this.getPropiedades().stream()
-        .mapToDouble(propiedad ->propiedad.getRedistribucion(periodo))
+        .mapToDouble(propiedad ->propiedad.getRetribucion(periodo))
         .sum();
         return total*0.75;
     }

@@ -49,14 +49,14 @@ public class Propiedad {
     }
 
     public void cancelarReserva(Reserva reserva){
-        if(reserva.estaEnRango()){
+        if(!reserva.enCurso()){
             this.getReservas().remove(reserva);
         }
     }
 
-    public double getRedistribucion(DateLapse periodo){
+    public double getRetribucion(DateLapse periodo){
         return this.getReservas().stream()
-        .mapToDouble(reserva ->reserva.getRedistribucion(periodo))
+        .mapToDouble(reserva ->reserva.getRetribucion(periodo,this.getPrecioNoche()))
         .sum();
     }
 }

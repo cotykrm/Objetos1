@@ -2,8 +2,6 @@ package ar.edu.unlp.info.oo1.ejercicio19bis;
 
 import java.time.LocalDate;
 
-//import ar.edu.unlp.info.oo1.ejercicio19.DateLapse;
-
 public class Reserva {
     private DateLapse lapso;
 
@@ -20,17 +18,17 @@ public class Reserva {
         return this.lapso;
     }
 
-    public boolean estaEnRango(){
-        return this.lapso.getFrom().isAfter(LocalDate.now());
+    public boolean enCurso(){
+        return this.getLapso().getFrom().isBefore(LocalDate.now()) || this.getLapso().getFrom().equals(LocalDate.now()) && this.getLapso().getTo().isAfter(LocalDate.now());
     }
 
     public boolean getDisponibilidad (DateLapse other){
         return !this.getLapso().overlaps(other);
     }
 
-    public double getRedistribucion(DateLapse period){
-        if(this.overlaps(periodo)){
-            return this.getPrecio();
+    public double getRetribucion(DateLapse periodo, double precioNoche){
+        if(this.getLapso().overlaps(periodo)){
+            return this.getPrecio(precioNoche);
         }
         return 0;
     }

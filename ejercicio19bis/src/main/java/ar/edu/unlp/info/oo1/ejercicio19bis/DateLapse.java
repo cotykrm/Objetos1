@@ -8,10 +8,10 @@ public class DateLapse {
     private LocalDate to;
 
     public DateLapse(LocalDate from, LocalDate to){
-        if (from.isAfter(to)||from.isEqual(to)) {
+        /*if (from.isAfter(to)||from.isEqual(to)) {
             throw new IllegalArgumentException("La fecha 'from' debe ser anterior a 'to'");
         }
-
+        */
         this.from = from;
         this.to = to;
     }
