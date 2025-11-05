@@ -18,6 +18,8 @@ public class main {
         o2.agregarTecnico(lu);
         juan.agregarOrden(o1);
         juan.agregarOrden(o2);
+
+        System.out.println();
         
     }
 
